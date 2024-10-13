@@ -4,6 +4,7 @@ const { google } = require('googleapis')
 const multer = require('multer')
 const cors = require('cors')
 const stream = require('stream')
+const googleConfigPath = require('./key.js')
 require('dotenv').config()
 // Initialize Express app
 const authenticate = require('./auth')
@@ -36,7 +37,7 @@ app.post('/upload', authenticate, upload.array('files'), async (req, res) => {
   try {
     // Google Drive authentication setup
     const auth = new google.auth.GoogleAuth({
-      keyFile: 'key.json',
+      keyFile: googleConfigPath,
       scopes: ['https://www.googleapis.com/auth/drive'],
     })
 
