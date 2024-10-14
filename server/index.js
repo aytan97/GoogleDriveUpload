@@ -94,6 +94,8 @@ app.post('/upload', authenticate, upload.array('files'), async (req, res) => {
   }
 })
 
+app.get('/favicon.ico', (req, res) => res.status(204)) // Sends no content to prevent 404
+
 // Start the server
 app.listen(5175, () => {
   console.log('App is running on port 5175')
