@@ -20,6 +20,8 @@ const LoginPage = () => {
         }
     }, []);
 
+    // console.log(import.meta.env.VITE_API_URL)
+
     const handleLogin = async () => {
         if (username && password) {
             try {
