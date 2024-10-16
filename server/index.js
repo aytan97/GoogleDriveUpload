@@ -116,7 +116,15 @@ app.use(cors())
 app.use(bodyParser.json())
 
 const storage = multer.memoryStorage()
-const upload = multer({ storage: storage })
+
+const upload = multer(
+  { storage: storage },
+  {
+    limits: {
+      fileSize: 100 * 1024 * 1024, // 100 MB size limit, adjust as needed
+    },
+  }
+)
 
 // Function to convert buffer to stream
 const bufferToStream = (buffer) => {
