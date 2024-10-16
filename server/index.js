@@ -112,7 +112,11 @@ require('dotenv').config()
 // Initialize Express app
 const app = express()
 app.use(express.json()) // to parse JSON request body
-app.use(cors())
+app.use(
+  cors({
+    origin: 'https://snap-and-share-wedding.vercel.app',
+  })
+)
 app.use(bodyParser.json())
 
 const storage = multer.memoryStorage()
